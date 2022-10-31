@@ -1,0 +1,56 @@
+{% extends "../base.html" %}
+{% load static %}
+    {% block content %}
+            <div class="container-fluid px-4 col-md-11  col-sm-12  col-xm-12">
+                <h1 class="mt-4">Figures home</h1>
+
+                <div class="row align-items-center">
+                    <div class="col-xl-11 col-md-6 align-items-center">
+                        <div class="card  text-white mb-4">
+                            <div class="card-body">
+                                <div>{{plot1 | safe}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-11 col-md-6 align-items-center">
+                        <div class="card  text-white mb-4">
+                            <div class="card-body">
+                                <div>{{plot2 | safe}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        REGIONAL GDP FROM 2017 TO 2018
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>REGION / YEAR</th>
+                                    <th>2017</th>
+                                    <th>2018</th>
+                                    <th>2019</th>
+                                    <th>2020</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if data %}
+                                {% for i in data %}
+                                <tr>
+                                    <td>{{i.YEAR}}</td>
+                                    <td>{{i.2017}}</td>
+                                    <td>{{i.2018}}</td>
+                                    <td>{{i.2019}}</td>
+                                    <td>{{i.2020}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    {% endblock %}
